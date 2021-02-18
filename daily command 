@@ -1,0 +1,54 @@
+scontrol create reservation ReservationName=test_project StartTime=2020-01-23T11:03:00 EndTime=2020-01-24T00:00:00 PartitionName=1080Ti_dbg Nodes=asimov-11 Users=sajjadwasim flags=FLEX
+
+
+
+
+srun -p V100 --gres=gpu:1 -n 1 --reservation=v100 --nodelist=asimov-241 --pty bash -l
+
+
+srun -p 1080Ti_dbg --gres=gpu:1 -n 1 --reservation=test_project --nodelist=asimov-11 --pty bash -l
+
+
+
+scontrol create reservation ReservationName=ICML_2020_Project2 StartTime=2020-01-17T09:57:00 EndTime=2020-02-5T00:00:00 PartitionName=M40x8 Nodes=asimov-[119] Users=baopu flags=FLEX
+
+
+scontrol delete ReservationName=v100
+
+
+reservation=v100 users=pingwei01 (remove mam)
+
+
+control update res=v100 -r remove
+
+
+scontrol update reservation=v100 partition=V100
+
+ 2080Ti node (8 cards) or TitanXx8 (8 cards)? Project name: Tensor decomposition in computer vision. start date: 1/22/2019, end date: 2/7/2019
+
+
+
+ scontrol create reservation ReservationName=Tensor_Decomposition StartTime=2020-01-23T15:25:00 EndTime=2020-02-07T00:00:00 PartitionName=TitanXx8 Nodes=asimov-[45] Users=zhiyu flags=FLEX
+
+
+scontrol update reservation=Tensor_Decomposition partition=TitanXx8
+
+
+srun --nodelist=blah --reservation=blah --output=fair_search_0117_w160_test1.log python train_search.py --batch-size 32 --epochs … etc)
+
+
+
+scontrol create reservation ReservationName=STWorkshop StartTime=2020-01-28T15:37:00 EndTime=2020-02-07T00:00:00 PartitionName=TitanXx8 Nodes=asimov-[52] Users=zrenj flags=FLEX
+
+scontrol create reservation ReservationName=paddle_smt02 StartTime=2020-02-3T12:26:00 EndTime=2020-02-05T00:00:00 PartitionName=M40x8 Nodes=asimov-[243] Users=zrenj flags=FLEX
+
+
+scontrol delete ReservationName=v100
+
+
+user_setquota.bash --verbose --user jinxin --size 3000
+
+500G
+
+1.Quote: CX-100778.  (Please do Mention ECCN and ETA)
+     2.Quote: CX-101746. (Please do Mention ECCN and ETA)
